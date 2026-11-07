@@ -1,0 +1,36 @@
+1. Aim
+
+To understand how equals() and hashCode() work together in HashSet to identify duplicate student records and maintain unique attendance.
+2. Short Notes
+equals()
+- Compares two objects to check whether they are logically equal.
+- In this program, students are considered equal if their register numbers are the same.
+
+hashCode()
+- Returns an integer value representing an object.
+- HashSet uses it to identify the bucket where an object should be stored.
+
+HashSet
+- Stores unique elements.
+- Uses hashCode() and equals() to identify duplicates.
+- Does not maintain insertion order.
+
+Important Rule: If two objects are equal according to equals(), they must return the same hash code.
+3. Algorithm
+
+1. Create a Student class with register number and name.
+2. Override equals() to compare register numbers.
+3. Initially, do not override hashCode().
+4. Create a HashSet to store student records.
+5. Add student records, including duplicate scans.
+6. Display the set size.
+7. Override hashCode() and execute the program again.
+8. Compare both results.
+4. Three Experimental Tests
+
+Before running the program, predict the results.
+
+Test	Student records	Predicted size
+Test 1	Same object scanned twice and another student	2
+Test 2	Different objects with the same register number	Usually 2 without hashCode; 1 after correction
+Test 3	Change register number after insertion	Object may not be found using contains()

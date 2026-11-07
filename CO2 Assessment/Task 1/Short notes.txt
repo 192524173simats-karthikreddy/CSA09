@@ -1,0 +1,25 @@
+1. Aim
+
+To compare String, StringBuilder and StringBuffer while generating railway e-tickets and identify which is more efficient for handling large amounts of text.
+
+2. Short Notes
+
+- String: Immutable. Once created, its value cannot be changed. Repeated concatenation creates new objects.
+- StringBuilder: Mutable. It modifies the same object and provides faster string construction in single-threaded operations.
+- StringBuffer: Mutable and synchronized. It is suitable when multiple threads need to modify the same buffer safely.
+
+
+Prediction:
+
+- String takes more time because it creates intermediate objects.
+- StringBuilder is generally faster.
+- StringBuffer may be slightly slower because of synchronization.
+
+3. Algorithm
+
+1. Create ticket details.
+2. Generate tickets using String concatenation.
+3. Generate tickets using StringBuilder.
+4. Generate tickets using StringBuffer.
+5. Calculate execution time using System.nanoTime().
+6. Compare the results.

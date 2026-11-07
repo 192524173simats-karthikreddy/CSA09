@@ -1,0 +1,25 @@
+1. Aim
+
+To compare HashMap, TreeMap and LinkedHashMap for managing hospital pharmacy inventory and identify the best collection for fast medicine lookup, sorted reports and insertion-order reports.
+
+2. Short Notes
+HashMap
+- Stores medicine codes as keys and stock details as values.
+- Provides fast insertion and searching.
+- Does not guarantee any particular order.
+TreeMap
+- Stores keys in sorted order.
+- Automatically displays medicine codes in ascending order.
+- Searching and insertion take O(log n).
+LinkedHashMap
+- Maintains the order in which medicines are inserted.
+- Provides fast searching.
+- Suitable for generating insertion-order reports.
+
+3. Prediction Before Implementation
+Operation	      HashMap	      TreeMap	       LinkedHashMap
+put()	             O(1) average     O(log n)	        O(1) average
+get()                O(1) average     O(log n)   	O(1) average
+Iteration	     O(n)	      O(n)	        O(n)
+Medicine-code order   No	      Yes	        No
+Insertion order	      No              No	        Yes

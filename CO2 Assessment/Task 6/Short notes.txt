@@ -1,0 +1,30 @@
+1. Aim
+
+To design a hospital emergency triage system using Java PriorityQueue. Patients with higher medical severity must be treated first, and patients with equal severity must be treated according to their arrival order.
+
+2. Short Notes
+Queue
+- Follows FIFO (First In, First Out).
+- The first patient who arrives is treated first.
+- It cannot directly prioritize patients based on medical severity.
+PriorityQueue
+- Stores elements according to priority.
+- Patients with higher priority are removed first.
+- Uses a Comparator to define priority rules.
+Comparator
+- Compares two patients.
+- Lower severity number gets higher priority.
+- Earlier arrival gets priority when severity is equal.
+Arrival Counter
+- Maintains the order in which patients arrive.
+- Ensures fairness among patients with equal severity.
+
+3. Design and Working
+The hospital uses severity levels from 1 to 5.
+
+Severity	Meaning		Priority
+1	        Critical	Highest
+2	        Very serious	High
+3		Moderate	Medium
+4		Minor		Low
+5		Least serious	Lowest

@@ -1,0 +1,50 @@
+1. Aim
+
+To develop a reusable Java leaderboard using Generics and Comparator to rank sports teams based on points, goal difference and team name. The same component can also be reused for players, colleges and quiz teams.
+
+2. Short Notes
+
+Generics
+- Allow a class or method to work with different data types.
+- Improve code reusability.
+- Example: Leaderboard<T>.
+Comparable
+- Defines the natural sorting order inside a class.
+- Uses the compareTo() method.
+Comparator
+- Defines custom sorting rules outside the class.
+- Supports multiple comparison conditions.
+thenComparing()
+
+- Adds additional comparison conditions when the previous condition is equal.
+
+reversed()
+
+- Reverses the sorting order.
+
+Wildcard
+
+- List<? extends T> accepts a list containing objects of type T or its subclasses.
+3. Design Decision Before Implementation
+For this project, Comparator is a better choice than Comparable.
+
+Reasons:
+
+1. Different applications may require different ranking rules.
+2. Comparator allows multiple sorting conditions.
+3. The same Team class can be sorted in different ways.
+4. The generic Leaderboard can be reused for players, colleges and quiz teams.
+Ranking rules:
+
+1. Points – Higher points first.
+2. Goal difference – Higher goal difference first.
+3. Team name – Alphabetical order (A–Z).
+4. Experimental Test Cases
+We use two datasets to verify the ranking system.
+
+Test 1 – Normal Ranking
+Team	Points	Goal Difference
+Panthers	9	4
+Eagles	        9	6
+Cobras	        6	1
+Bisons	        9	4

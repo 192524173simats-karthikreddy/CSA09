@@ -1,0 +1,43 @@
+1. Aim
+
+To compare ArrayList and LinkedList for music playlist operations and identify the most suitable collection based on insertion, deletion, searching and accessing songs. Also, to evaluate ArrayDeque for an Up Next queue.
+2. Short Notes
+
+ArrayList
+
+- Stores elements using a dynamic array.
+- Provides fast access to elements using an index.
+- Insertion and deletion at the beginning or middle require shifting elements.
+
+LinkedList
+
+- Stores elements as connected nodes.
+- Insertion and deletion are efficient when the required position is already reached.
+- Accessing an element by index is slower because nodes must be traversed.
+
+ArrayDeque
+
+- Uses a resizable circular array.
+- Supports insertion and deletion at both ends.
+- Suitable for implementing an Up Next queue.
+3. Experimental Design
+We use three different playlist sizes to compare performance.
+Experiment	Number of songs	Purpose
+Small	1,000	Small playlist
+Medium	10,000	Medium playlist
+Large	50,000	Large playlist
+
+Operations tested:
+1. Adding songs at the end.
+2. Inserting songs at the front.
+3. Inserting songs in the middle.
+4. Removing songs from the front and middle.
+5. Accessing the k-th song.
+6. Iterating through the complete playlist.
+
+Prediction:
+
+- ArrayList should perform better when accessing songs by index.
+- LinkedList should perform better for insertion and deletion at the front.
+- Both should support efficient iteration.
+- ArrayDeque should be better for an Up Next queue where songs are frequently added and removed from both ends.

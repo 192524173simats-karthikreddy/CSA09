@@ -1,0 +1,39 @@
+A. Diagnose the Bottleneck 
+
+In Q5, the leaderboard uses Collections.sort() whenever the ranking() method is called. This works correctly for a small number of teams. However, when the number of teams increases and users request the ranking repeatedly, the same sorting operation is performed again and again.
+
+Identified bottleneck:
+- Most processing time is spent sorting the leaderboard.
+- Sorting \(n\) teams takes \(O(n \log n)\) time.
+- If the ranking is requested 50 times without changing the team data, the same data is sorted 50 times.
+- The original implementation creates a new list and sorts it for every ranking request.
+- The repeated sorting causes unnecessary processing and object allocation.
+Limitation: The original design does not remember the previously calculated ranking, even when the team data has not changed.
+
+B. Define the Design Objective
+
+The redesigned leaderboard should:
+1. Avoid sorting the teams repeatedly when no data has changed.
+2. Maintain the same ranking rules: points descending, goal difference descending, and team name alphabetical.
+3. Recalculate the ranking only after a team is added.
+4. Support repeated ranking requests efficiently.
+Measurable objective: For 50 ranking requests without any team updates, the redesigned solution should perform sorting only once instead of 50 times.
+
+C. Design the Revised Solution 
+
+Changes made
+The original implementation sorts the list every time ranking() is called. The redesigned implementation uses a cached ranking with a Boolean variable called isDirty.
+- cachedRanking stores the previously sorted leaderboard.
+- isDirty indicates whether the team data has changed.
+- When a new team is added, isDirty becomes true.
+- When ranking() is called, sorting happens only if isDirty is true.
+- After sorting, the result is stored in cachedRanking.
+- Further ranking requests reuse the cached result until the data changes.
+
+D. Predict Before Implementing
+
+Before testing, the expected result is:
+- The original solution will sort the leaderboard for every ranking request.
+- The redesigned solution will sort only once if the data has not changed.
+- For 50 ranking requests, the original will perform 50 sorts, while the redesigned solution will perform only one sort.
+- The redesigned solution should use less processing time when ranking requests are frequent and updates are rare.
